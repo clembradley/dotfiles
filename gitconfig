@@ -5,16 +5,30 @@
 [alias]
   aa = add --all
   ap = add --patch
-  ca = commit --amend
+  br = branch
+  ca = !bash -c \"git commit --amend --date '`date`'\"
   ci = commit -v
   co = checkout
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
   create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+  d = diff
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+  diff-master = diff master..HEAD
+  dupes = !git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40
+  l = log --no-merges
+  l3 = log -3 --no-merges
+  latest-commit = rev-list -n 1 HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ll = log origin/master..HEAD
+  log-pretty = log --pretty=oneline
   merge-branch = !git checkout master && git merge @{-1}
   pr = !hub pull-request
+  pub = "!f() { git push origin HEAD:`git symbolic-ref --short -q HEAD` -f -u; }; f" # push the current branch to origin
   st = status
   up = !git fetch origin && git rebase origin/master
+  wc = whatchanged
+  wc1 = whatchanged -1
+  wc3 = whatchanged -3
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -26,3 +40,6 @@
   template = ~/.gitmessage
 [fetch]
   prune = true
+[user]
+  name = Clem Bradley
+  email = clement.bradley@gmail.com
