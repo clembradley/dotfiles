@@ -1,3 +1,14 @@
+# function to set tmux window name
+set_title() {
+  printf "\033k$1\033\\"
+}
+
+# name the window to the ssh host
+ssh() {
+  set_title "$*"
+  command ssh "$@"
+}
+
 # Unix
 alias tlf="tail -f"
 alias ln='ln -v'
@@ -14,7 +25,9 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 
 # git
-alias gci="git pull --rebase && rake && git push"
+alias gbcbuf='git symbolic-ref head --short | pbcopy' # copy current branch name to copy buffer
+alias gitready="git pull --rebase && git prune && git remote prune origin"
+alias gitwip="git add -A && git ci -m 'clem: WIP'"
 
 # Bundler
 alias b="bundle"
@@ -25,8 +38,19 @@ alias t="ruby -I test"
 # Rails
 alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias m="migrate"
-alias rk="rake"
-alias s="rspec"
+
+# Misc
+alias 'bundle-proxy'='http_proxy=http://localhost:3132 bundle'
+alias be='bundle exec'
+alias brake='bundle exec rake'
+alias cppwd='pwd | pbcopy'
+alias la='ls -laGF'
+alias lake='LOCAL=true bundle exec rake'
+alias lrspec='LOCAL=true rspec'
+alias szsh='source ~/.zshrc'
+alias shost='sudo scutil --set HostName' # change the name of this host/machine
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
