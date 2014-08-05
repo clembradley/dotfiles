@@ -178,8 +178,12 @@ inoremap jk <esc>
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
+" configure vim-rspec to work with tmux and tslime
 let g:rspec_runner = "os_x_iterm"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
+" change default NERDTree window width
+let g:NERDTreeWinSize = 50
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
