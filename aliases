@@ -52,5 +52,8 @@ alias shost='sudo scutil --set HostName' # change the name of this host/machine
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 
+# Repos
+alias dotfiles='cd ~/dotfiles; set_title dotfiles'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
