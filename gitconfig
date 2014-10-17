@@ -25,6 +25,7 @@
   pr = !hub pull-request
   pub = "!f() { git push origin HEAD:`git symbolic-ref --short -q HEAD` -f -u; }; f" # push the current branch to origin
   st = status
+  top = rev-parse HEAD
   up = !git fetch origin && git rebase origin/master
   wc = whatchanged
   wc1 = whatchanged -1
@@ -42,4 +43,4 @@
   prune = true
 [user]
   name = Clem Bradley
-  email = clement.bradley@gmail.com
+  email = clem@groupon.com

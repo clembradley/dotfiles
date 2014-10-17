@@ -15,6 +15,7 @@ set nowritebackup
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set smartcase
+set nowrap " don't wrap lines
 
 " Leader
 let mapleader = ","
@@ -124,12 +125,6 @@ map <Leader>ct :!ctags -R .<CR>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " vim-rspec mappings
 nnoremap <Leader>c :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>s :call RunNearestSpec()<CR>
@@ -174,13 +169,19 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " use jk instead of escape
 inoremap jk <esc>
 
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " configure vim-rspec to work with tmux and tslime
 let g:rspec_runner = "os_x_iterm"
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 
 " change default NERDTree window width
 let g:NERDTreeWinSize = 50
@@ -188,6 +189,9 @@ let g:NERDTreeWinSize = 50
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
+
+" vim-repeat
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

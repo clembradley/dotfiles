@@ -38,6 +38,9 @@ export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # completion
 autoload -U compinit
 compinit
@@ -85,6 +88,28 @@ export EDITOR=$VISUAL
 
 # ensure dotfiles bin directory is loaded first
 export PATH="$HOME/.bin:/usr/local/bin:$PATH"
+
+function pkg {
+  PKGNAME=$(pkgver $1)
+  ln -s $1 $PKGNAME
+  tar -czhvf $PKGNAME.tar.gz $PKGNAME
+  echo "Done. Now run:\npkgup $PKGNAME.tar.gz"
+}
+
+# need to be on the office network or VPN for this to work
+# # in case of usage of the http proxy thru a ssh tunnel run (change the port if needed)
+# #  export http_proxy="http://localhost:3132"
+function pkgup {
+  curl --upload-file $1 http://config.snc1/package/
+}
+
+function pkgver {
+  echo "$1-$(date +%Y.%m.%d_%H.%M)"
+}
+
+function gendate {
+  date +%Y.%m.%d_%H.%M
+}
 
 # load rbenv if available
 if which rbenv &>/dev/null ; then
