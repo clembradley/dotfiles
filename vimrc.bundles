@@ -36,6 +36,7 @@ Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
 Plugin 'tpope/vim-repeat'
+Plugin 'mustache/vim-mustache-handlebars'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
