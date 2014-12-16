@@ -28,6 +28,7 @@ alias v="$VISUAL"
 alias gbcbuf='git symbolic-ref head --short | pbcopy' # copy current branch name to copy buffer
 alias gitready="git pull --rebase && git prune && git remote prune origin"
 alias gitwip="git add -A && git ci -m 'clem: WIP'"
+alias git-push-loop="git err; while [[ $? -ne 0 ]]; do git pull --rebase && git push origin master; done"
 
 # Bundler
 alias b="bundle"
