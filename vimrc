@@ -159,11 +159,12 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader><space> :noh<cr>
 
 " NERDTree mappings
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap \ :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
+
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " use jk instead of escape
