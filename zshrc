@@ -119,6 +119,10 @@ fi
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
 
+# add Go variables
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
