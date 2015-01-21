@@ -10,7 +10,7 @@ set guioptions+=c
 set encoding=utf-8
 colorscheme solarized
 set background=dark
-set guifont=Menlo:h12
+set guifont=Monaco:h12
 
 " Local config
 if filereadable($HOME . "/.gvimrc.local")
