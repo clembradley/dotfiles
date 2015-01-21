@@ -23,6 +23,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'pbrisbin/vim-mkdir'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'skwp/greplace.vim'
@@ -37,7 +38,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/matchit.zip'
-Plugin 'vim-scripts/tComment'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
