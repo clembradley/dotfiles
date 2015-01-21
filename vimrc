@@ -86,7 +86,11 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+if has("gui_running")
+  set listchars=trail:·
+else
+  set listchars=tab:»\ ,trail:~,nbsp:·
+endif
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
