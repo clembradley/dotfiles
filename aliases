@@ -44,6 +44,7 @@ alias m="migrate"
 alias 'bundle-proxy'='http_proxy=http://localhost:3132 bundle'
 alias be='bundle exec'
 alias brake='bundle exec rake'
+alias cdgo='cd $GOPATH/src'
 alias cppwd='pwd | pbcopy'
 alias la='ls -laGF'
 alias lake='LOCAL=true bundle exec rake'
