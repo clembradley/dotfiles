@@ -70,6 +70,13 @@ augroup vimrcEx
 
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+  " Highlight Ruby files
+  autocmd BufRead,BufNewFile *.thor set filetype=ruby
+  autocmd BufRead,BufNewFile *.god set filetype=ruby
+  autocmd BufRead,BufNewFile Gemfile* set filetype=ruby
+  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+  autocmd BufRead,BufNewFile soloistrc set filetype=ruby
 augroup END
 
 " Softtabs, 2 spaces
@@ -149,6 +156,11 @@ let g:html_indent_tags = 'li\|p'
 set splitbelow
 set splitright
 
+" copy current filename into system clipboard - mnemonic: (c)urrent(f)ilename
+" this is helpful to paste someone the path you're looking at
+nnoremap <silent> <leader>cf :let @* = expand("%:~")<CR>
+nnoremap <silent> <leader>cn :let @* = expand("%:t")<CR>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -162,19 +174,21 @@ nnoremap <leader><space> :noh<cr>
 nnoremap \ :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
+" CtrlP mappings
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
-
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " use jk instead of escape
 inoremap jk <esc>
 
-" Get off my lawn
-" nnoremap <Left> :echoe "Use h"<CR>
-" nnoremap <Right> :echoe "Use l"<CR>
-" nnoremap <Up> :echoe "Use k"<CR>
-" nnoremap <Down> :echoe "Use j"<CR>
+" NERDCommenter mappings to comment/uncomment lines
+map <leader>/   <plug>NERDCommenterToggle
+map <D-/>       <plug>NERDCommenterToggle
+imap <D-/>      <Esc><plug>NERDCommenterToggle i
+
+" Git blame
+map <leader>g   :Gblame<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
