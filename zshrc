@@ -128,3 +128,4 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+ulimit -n 4096
