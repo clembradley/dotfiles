@@ -16,6 +16,19 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set smartcase
 set nowrap " don't wrap lines
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+set number
+set numberwidth=5
+set textwidth=120 " Make it obvious where 120 characters is
+set colorcolumn=+1 " Make it obvious where 120 characters is
+set splitbelow " Open new split panes to right and bottom, which feels more natural
+set splitright " Open new split panes to right and bottom, which feels more natural
+
+" autosave on focus out
+:au FocusLost * :wa
 
 " Leader
 let mapleader = ","
@@ -39,7 +52,7 @@ filetype plugin indent on
 " Colorscheme
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme molokai
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -72,18 +85,13 @@ augroup vimrcEx
   autocmd FileType css,scss,sass setlocal iskeyword+=-
 
   " Highlight Ruby files
+  autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
   autocmd BufRead,BufNewFile *.thor set filetype=ruby
   autocmd BufRead,BufNewFile *.god set filetype=ruby
   autocmd BufRead,BufNewFile Gemfile* set filetype=ruby
   autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
   autocmd BufRead,BufNewFile soloistrc set filetype=ruby
 augroup END
-
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
 
 " Display extra whitespace
 if has("gui_running")
@@ -103,14 +111,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-" Make it obvious where 120 characters is
-set textwidth=120
-set colorcolumn=+1
-
-" Numbers
-set number
-set numberwidth=5
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -156,10 +156,6 @@ nnoremap <leader>as :AlternateHorizontalSplit<cr>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
 " copy current filename into system clipboard - mnemonic: (c)urrent(f)ilename
 " this is helpful to paste someone the path you're looking at
 nnoremap <silent> <leader>cf :let @* = expand("%:~")<CR>
@@ -176,7 +172,7 @@ nnoremap <leader><space> :noh<cr>
 
 " NERDTree mappings
 nnoremap \ :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <bar> :NERDTreeFind<CR> " aka shift+\
 
 " CtrlP mappings
 nnoremap <leader>t :CtrlP<CR>
