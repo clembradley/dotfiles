@@ -8,7 +8,7 @@ set guioptions-=T
 set guioptions+=c
 
 set encoding=utf-8
-colorscheme solarized
+colorscheme molokai
 set background=dark
 set guifont=Monaco:h12
 
