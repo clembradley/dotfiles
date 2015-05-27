@@ -22,8 +22,8 @@ set shiftround
 set expandtab
 set number
 set numberwidth=5
-set textwidth=120 " Make it obvious where 120 characters is
-set colorcolumn=+1 " Make it obvious where 120 characters is
+set textwidth=80 " Make it obvious where 80 characters is
+set colorcolumn=+1 " Make it obvious where 80 characters is
 set splitbelow " Open new split panes to right and bottom, which feels more natural
 set splitright " Open new split panes to right and bottom, which feels more natural
 
