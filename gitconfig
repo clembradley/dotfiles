@@ -15,6 +15,7 @@
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
   diff-master = diff master..HEAD
   dupes = !git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40
+  graph = log --oneline --decorate --graph --all
   l = log --no-merges
   l3 = log -3 --no-merges
   latest-commit = rev-list -n 1 HEAD
