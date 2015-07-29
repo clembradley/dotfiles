@@ -190,6 +190,13 @@ imap <D-/>      <Esc><plug>NERDCommenterToggle i
 " Git blame
 map <leader>g   :Gblame<CR>
 
+" RSpec.vim mappings
+ map <leader>RT :call RunCurrentSpecFile()<CR>
+ map <leader>RS :call RunNearestSpec()<CR>
+ map <leader>RL :call RunLastSpec()<CR>
+ map <leader>RA :call RunAllSpecs()<CR>
+
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]

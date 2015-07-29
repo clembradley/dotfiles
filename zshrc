@@ -129,3 +129,7 @@ export PATH="$PATH:$GOPATH/bin"
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 ulimit -n 4096
+
+function perf {
+  curl -o /dev/null  -s -w "%{http_code}; %{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1" -k
+}

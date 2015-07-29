@@ -29,6 +29,7 @@ alias gbcbuf='git symbolic-ref head --short | pbcopy' # copy current branch name
 alias gitready="git pull --rebase && git prune && git remote prune origin"
 alias gitwip="git add -A && git ci -m 'clem: WIP'"
 alias git-push-loop="git err; while [[ $? -ne 0 ]]; do git pull --rebase && git push origin master; done"
+alias gco="git checkout"
 
 # Bundler
 alias b="bundle"
@@ -37,22 +38,23 @@ alias b="bundle"
 alias t="ruby -I test"
 
 # Rails
-alias migrate="rake db:migrate db:rollback && rake db:migrate"
+alias migrate="bundle exec rake db:migrate db:rollback && bundle exec rake db:migrate"
 alias m="migrate"
 
 # Misc
-alias 'bundle-proxy'='http_proxy=http://localhost:3132 bundle'
 alias be='bundle exec'
 alias brake='bundle exec rake'
 alias cdgo='cd $GOPATH/src'
+alias check="ps aux |grep -v grep|grep"
 alias cppwd='pwd | pbcopy'
+alias dbreset='brake db:drop:all db:create:all db:schema:load db:test:prepare && brake db:sample_data'
 alias la='ls -laGF'
 alias lake='LOCAL=true bundle exec rake'
 alias lrspec='LOCAL=true rspec'
-alias szsh='source ~/.zshrc'
 alias shost='sudo scutil --set HostName' # change the name of this host/machine
-alias zshrc='vim ~/.zshrc'
+alias szsh='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
 
 # Repos
 alias dotfiles='cd ~/dotfiles; set_title dotfiles'
