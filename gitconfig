@@ -21,6 +21,7 @@
   latest-commit = rev-list -n 1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   ll = log origin/master..HEAD
+  ls = log --pretty=format:"%C(yellow)%h %C(reset)%s%C(blue) [%cn]%C(reset) %C(green)[%cr]" --no-merges
   log-pretty = log --pretty=oneline
   merge-branch = !git checkout master && git merge @{-1}
   pr = !hub pull-request
