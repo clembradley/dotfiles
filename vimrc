@@ -191,11 +191,13 @@ imap <D-/>      <Esc><plug>NERDCommenterToggle i
 map <leader>g   :Gblame<CR>
 
 " RSpec.vim mappings
- map <leader>RT :call RunCurrentSpecFile()<CR>
- map <leader>RS :call RunNearestSpec()<CR>
- map <leader>RL :call RunLastSpec()<CR>
- map <leader>RA :call RunAllSpecs()<CR>
+map <leader>RT :call RunCurrentSpecFile()<CR>
+map <leader>RS :call RunNearestSpec()<CR>
+map <leader>RL :call RunLastSpec()<CR>
+map <leader>RA :call RunAllSpecs()<CR>
 
+" ctags: open definition in a new vertical split
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
