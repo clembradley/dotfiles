@@ -120,6 +120,9 @@ export PATH=".git/safe/../../bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
+# set editor when calling `bundle open [GEM]`
+export BUNDLER_EDITOR=mvim
+
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
