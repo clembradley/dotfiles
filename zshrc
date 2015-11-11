@@ -38,9 +38,6 @@ export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
 # completion
 autoload -U compinit
 compinit
@@ -133,3 +130,9 @@ ulimit -n 4096
 function perf {
   curl -o /dev/null  -s -w "%{http_code}; %{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1" -k
 }
+
+# install script
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+# source: https://github.com/creationix/nvm#install-script
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
