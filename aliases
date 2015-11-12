@@ -56,6 +56,7 @@ alias shost='sudo scutil --set HostName' # change the name of this host/machine
 alias szsh='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias timetag="(TZ=UTC date '+%Y.%m.%d_%H.%M') | pbcopy"
 
 # Repos
 alias dotfiles='cd ~/dotfiles; set_title dotfiles'

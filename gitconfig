@@ -13,6 +13,7 @@
   create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
   d = diff
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+  delete-tag = !sh -c 'git push origin :refs/tags/$1 && git tag -d $1' -
   diff-master = diff master..HEAD
   dupes = !git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40
   graph = log --oneline --decorate --graph --all
