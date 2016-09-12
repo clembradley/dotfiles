@@ -44,6 +44,7 @@ alias m="migrate"
 
 # Misc
 alias be='bundle exec'
+alias ber='bundle exec rspec'
 alias brake='bundle exec rake'
 alias cdgo='cd $GOPATH/src'
 alias check="ps aux |grep -v grep|grep"
@@ -52,6 +53,7 @@ alias dbreset='brake db:drop:all db:create:all db:schema:load db:test:prepare &&
 alias la='ls -laGF'
 alias lake='LOCAL=true bundle exec rake'
 alias lrspec='LOCAL=true rspec'
+alias s='spring'
 alias shost='sudo scutil --set HostName' # change the name of this host/machine
 alias szsh='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
