@@ -110,6 +110,8 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  let g:grep_cmd_opts = '--line-numbers --noheading'
 endif
 
 " Tab completion

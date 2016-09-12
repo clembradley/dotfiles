@@ -134,8 +134,15 @@ function perf {
   curl -o /dev/null  -s -w "%{http_code}; %{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1" -k
 }
 
+export CLASSPATH=".:/Users/clement/Dropbox/Dev/java_sandbox/*"
+
+# load Docker environment variables for default docker machine
+#eval "$(docker-machine env default)"
+
 # install script
 # curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 # source: https://github.com/creationix/nvm#install-script
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
