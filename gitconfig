@@ -6,6 +6,7 @@
   aa = add --all
   ap = add --patch
   br = branch
+  branches = for-each-ref --sort=committerdate --format=\"%(color:reset)%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
   ca = !bash -c \"git commit --amend --date '`date`'\"
   ci = commit -v
   co = checkout
@@ -21,7 +22,7 @@
   l3 = log -3 --no-merges
   latest-commit = rev-list -n 1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  ll = log origin/master..HEAD
+  ll = log origin/develop..HEAD
   ls = log --pretty=format:"%C(yellow)%h %C(reset)%s%C(blue) [%cn]%C(reset) %C(green)[%cr]" --no-merges
   log-pretty = log --pretty=oneline
   merge-branch = !git checkout master && git merge @{-1}
@@ -36,6 +37,7 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
+	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [merge]
   ff = only
 [include]
@@ -47,3 +49,5 @@
 [user]
   name = Clem Bradley
   email = clem@groupon.com
+[http]
+	postBuffer = 157286400
